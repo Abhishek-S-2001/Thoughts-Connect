@@ -1,0 +1,43 @@
+body{
+    background-color: #FAFAFA;
+}
+.loginpage__main{
+    display: flex;
+    text-align: center;
+}
+.loginpage__logo{
+    width: 125px;
+    margin-top: 20px;
+}
+.loginpage__rightcomponent{
+    height: 400px;
+    width: 250px;
+    border: 1px solid black;
+    margin-top: 50px;
+    text-align: center;
+    background-color: white;
+}
+.loginpage__signin{
+    margin-top: 25px;
+}
+.loginpage__text{
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #FAFAFA;
+    padding-left: 20px;
+}
+.login__button{
+    width: 120px;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #0099ff;
+    background-color: #036cf6;
+    color: #FAFAFA;
+}
+.loginpage__signup{
+    margin-top: 30px;
+}
