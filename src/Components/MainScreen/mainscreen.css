@@ -1,0 +1,21 @@
+.screen__container{
+    display: grid;
+    background-color: #CEE5F2;
+    grid-template-columns: 20% 60% 20%;
+    height: 100%;
+    width: 99%;
+    grid-column-gap: 5px;
+}
+.screen{
+    display: grid;
+    grid-template-rows: 10% 20% 70%;
+}
+.screen__post{
+    margin-top: 10px;;
+}
+.screen__feed{
+    border: 2px solid #fafafa;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
+                -5px -5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}

@@ -1,0 +1,11 @@
+/* App.css */
+
+.app-container {
+    display: grid;
+    grid-template-rows: 10% 90%;
+    height: 97vh;
+  }
+  .top-panel,
+  .bottom-panel {
+    margin-top: 4px;
+  }

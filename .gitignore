@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# Resources, images, logos
+/src/Resources
+
 # testing
 /coverage
 

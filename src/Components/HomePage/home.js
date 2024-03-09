@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './home.css';
 
 import NavBar from '../NavBar/navbar';
-import MainContent from '../MainContent/maincontent';
+import MainScreen from '../MainScreen/mainscreen';
 
 class Home extends Component{
     constructor(props){
@@ -11,10 +11,15 @@ class Home extends Component{
     }
     render(){
         return(
-            <div>
-                <NavBar />
-                <MainContent />
-            </div>
+
+    <div className="app-container">
+        <div className="top-panel">
+            <NavBar />
+        </div>
+        <div className="bottom-panel">
+            <MainScreen />
+        </div>
+    </div>
 
         );
     }
