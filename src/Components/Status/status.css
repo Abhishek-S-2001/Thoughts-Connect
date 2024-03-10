@@ -1,46 +1,59 @@
 /* status.css */
-.status__card {
-    background-color: #f4f4f4;
-    border: #cee5f2;
-    border-radius: 20px;
-    width: 90%;
-    height: 100px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
-                -5px -5px 5px rgba(0, 0, 0, 0.2);
-}.active {
-    border: 2px solid #4caf50;
-}.inactive {
-    border: 2px solid #e8e7e7;
+.container{
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  overflow: hidden;
+  /* border: 1px solid rgb(204,204,204); */
+  background-color: CEE5F2;
+  padding: 1rem;
+  width: 92%;
 }
-.status__card:hover {
-    transform: scale(1.1);
+.status__container{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 110px;
+  grid-gap: 6px;
 }
-  
-  .status__profilepic {
-    border: 2px solid #cee5f2;
-    border-radius: 10px;
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-  }
-  
-  .status-card .MuiTypography-h6 {
-    font-size: 5px;
-  }
-  
-.container {
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-  }
-  
-  .status__container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 5rem;
-    margin: 0;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s ease-in;
-  }
+.status__card{
+  width: 100px;
+  height: 100px;
+  display: grid;
+  text-align: center;
+  position: relative;
+  border: 2px solid #1995AD;
+  border-radius: 20px;
+  background: linear-gradient(to top right, rgb(128, 250, 246), rgb(143, 182, 255));
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in;
+}
+ .status__card:hover{
+  transform: scale(1.1);
+}
+.status__img{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.status__content:last-child::after{
+  content: '';
+  position: absolute;
+  width: 2rem;
+  height: 100%;
+  right: -2rem;
+}
+.status__img img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid #1995AD;
+  border-radius: 20%;
+}
+.status__title{
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  font-size: 12px;
+}

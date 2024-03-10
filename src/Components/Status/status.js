@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useRef }  from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import './status.css';
 
 import Profile_Pic from '../../Resources/profile_pic.jpg';
 
 const Status = () => {
+  const containerRef = useRef(null);
+
+  const handleMouseWheel = (e) => {
+    const container = containerRef.current;
+
+    if (container) {
+      container.scrollTo({
+        left: container.scrollLeft + e.deltaY,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const statusData = [
     { username: 'user1', Src: Profile_Pic, status: 'active', title: 'Title 1', thought: 'Thought 1' },
     { username: 'user2', Src: Profile_Pic, status: 'inactive', title: 'Title 2', thought: 'Thought 2' },
-    { username: 'user4', Src: Profile_Pic, status: 'active', title: 'Title 3', thought: 'Thought 3' },
+    { username: 'user4', Src: Profile_Pic, status: 'active', title: 'Title 3 vyshvcVCLDHSBCYkg,cbu vclqvcbvclc,ckBCB CILcbhbvc.', thought: 'Thought 3' },
     { username: 'user5', Src: Profile_Pic, status: 'inactive', title: 'Title 4', thought: 'Thought 4' },
     { username: 'user3', Src: Profile_Pic, status: 'active', title: 'Title 5', thought: 'Thought 5' },
     { username: 'user6', Src: Profile_Pic, status: 'active', title: 'Title 6', thought: 'Thought 6' },
@@ -17,15 +30,17 @@ const Status = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="container" ref={containerRef} onWheel={handleMouseWheel}>
       <div className="status__container">
-        {statusData.map(({ username, Src, status, title, thought }, index) => (
-          <Card key={index} className={`status__card ${status}`}>
-            <CardContent>
-              <img className="status__profilepic" alt={username} src={Src} />
-              <div className="status-content">
-                <Typography variant="subtitle1">{title}</Typography>
+        {statusData.map(({  Src, status, title, thought }, index) => (
+          <Card className={`status__card ${status}`}>
+            <CardContent className='status__content' >
+              <div className='status__img'>
+                <img src={Src} alt='Profile Pic' />
               </div>
+              <div className='status__title'>
+                <text className='title'>{title}</text>
+              </div>  
             </CardContent>
           </Card>
         ))}

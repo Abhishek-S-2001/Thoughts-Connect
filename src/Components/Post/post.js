@@ -29,7 +29,6 @@ const Post = () => {
         setShowCard(false);
     };
     return(
-
     <div className="post-container">
         {!showCard ? (
             <button className='button__newpost' onClick={() => setShowCard(true)}>

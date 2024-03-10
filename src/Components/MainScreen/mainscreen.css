@@ -11,7 +11,15 @@
     grid-template-rows: 10% 20% 70%;
 }
 .screen__post{
-    margin-top: 10px;;
+    margin-top: 10px;
+    text-align: center;
+    align-items: center;
+}
+.screen__status{
+    display: flex;
+    width: 90%;
+    text-align: center;
+    align-items: center;
 }
 .screen__feed{
     border: 2px solid #fafafa;
