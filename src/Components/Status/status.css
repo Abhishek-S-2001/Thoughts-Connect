@@ -1,29 +1,28 @@
 /* status.css */
 .container{
-  display: flex;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  overflow: hidden;
-  /* border: 1px solid rgb(204,204,204); */
-  background-color: CEE5F2;
-  padding: 1rem;
-  width: 92%;
-}
-.status__container{
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 110px;
   grid-gap: 6px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  overflow: hidden;
+  padding: 1rem;
+  width: 92%;
+  border-radius: 30px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2),
+  -10px -10px 10px rgba(0, 0, 0, 0.2);
 }
+
 .status__card{
   width: 100px;
   height: 100px;
-  display: grid;
-  text-align: center;
-  position: relative;
-  border: 2px solid #1995AD;
-  border-radius: 20px;
-  background: linear-gradient(to top right, rgb(128, 250, 246), rgb(143, 182, 255));
+  border: 1px solid #1995AD;
+  border-radius: 30%;
+  background: -webkit-linear-gradient(to left, #C06C84, #6C5B7B, #71b4ee);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #81cfec, #bda6d1, #74b6ef);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2),
+              -10px -10px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   user-select: none;
   transition: all 0.2s ease-in;
@@ -36,13 +35,7 @@
   width: 30px;
   height: 30px;
 }
-.status__content:last-child::after{
-  content: '';
-  position: absolute;
-  width: 2rem;
-  height: 100%;
-  right: -2rem;
-}
+
 .status__img img{
   display: block;
   width: 100%;
@@ -53,7 +46,5 @@
 }
 .status__title{
   overflow: hidden;
-  /* white-space: nowrap; */
-  text-overflow: ellipsis;
   font-size: 12px;
 }

@@ -1,5 +1,5 @@
 import React, { useRef }  from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent } from '@mui/material';
 import './status.css';
 
 import Profile_Pic from '../../Resources/profile_pic.jpg';
@@ -9,12 +9,10 @@ const Status = () => {
 
   const handleMouseWheel = (e) => {
     const container = containerRef.current;
-
+  
     if (container) {
-      container.scrollTo({
-        left: container.scrollLeft + e.deltaY,
-        behavior: 'smooth',
-      });
+      container.scrollLeft += e.deltaY;
+      e.preventDefault();
     }
   };
 
@@ -31,7 +29,7 @@ const Status = () => {
 
   return (
     <div className="container" ref={containerRef} onWheel={handleMouseWheel}>
-      <div className="status__container">
+      
         {statusData.map(({  Src, status, title, thought }, index) => (
           <Card className={`status__card ${status}`}>
             <CardContent className='status__content' >
@@ -44,7 +42,7 @@ const Status = () => {
             </CardContent>
           </Card>
         ))}
-      </div>
+      
     </div>
   );
 };

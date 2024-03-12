@@ -16,7 +16,7 @@ class NavBar extends Component{
     }
     render(){
         return(
-    <AppBar className='navbar'>
+    <AppBar>
         <Toolbar className='navbar'>
             <img src={logo} className='navbar__logo' alt="Logo" />
 

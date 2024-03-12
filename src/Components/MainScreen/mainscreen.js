@@ -15,7 +15,7 @@ class MainScreen extends Component{
 
     <div className='screen__container'>
         <div>
-            hello
+            Abhishek
         </div>
         <div className='screen'>
             <div className='screen__post'>
@@ -24,14 +24,13 @@ class MainScreen extends Component{
             <div className='screen__status'>
                 <Status/>
             </div>
-            {/* <div className='screen__feed'>
+            <div className='screen__feed'>
                 <Feed />
-            </div> */}
+            </div>
         </div>
         <div>
-            shekhawat
+            Shekhawat
         </div>
-        
     </div>
 
         )
