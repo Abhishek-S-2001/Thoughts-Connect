@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './navbar.css';
-import { AppBar, Toolbar, Typography, InputBase, IconButton } from '@mui/material';
+import { Toolbar, Typography, InputBase, IconButton } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -16,7 +16,7 @@ class NavBar extends Component{
     }
     render(){
         return(
-    <AppBar>
+    <div className='nav__container'>
         <Toolbar className='navbar'>
             <img src={logo} className='navbar__logo' alt="Logo" />
 
@@ -62,7 +62,7 @@ class NavBar extends Component{
             </div>
 
         </Toolbar>
-    </AppBar>
+    </div>
         );
     }
 }

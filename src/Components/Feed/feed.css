@@ -1,51 +1,86 @@
-.cardContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 5px;
-    padding: 1rem;
-    grid-auto-rows: minmax(200px, auto);
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: inherit;
-    border: 1px solid #050404;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
-                -5px -5px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-  }
-  
-  .profileInfo {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .profilePic {
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    border: 2px solid #1995AD;
-    border-radius: 20%;
-  }
+.feed__screen {
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  position: relative;
+}
+.feed__screen::-webkit-scrollbar { 
+  scroll-behavior: auto;
+  display: none;
+}
 
-  .postTitle {
-    margin: 10px 0;
-    text-align: center;
-    font-size: 14px;
-  }
-  
-  .postThought {
-    text-align: justify;
-    font-size: 12px;
-  }
-  
-  .postActions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-  
+ .cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 240px);
+  grid-auto-rows: 250px;
+  position: absolute;
+  gap: 20px;
+  white-space: nowrap;
+  padding: 20px;
+  top: 0;
+  left: 0;
+}
+
+.card {
+  max-height: 250px;
+  /* background: linear-gradient(145deg, #e6e6e6, #ffffff); */
+  box-shadow:  17px 17px 43px #808080,
+               -17px -17px 43px #ffffff;
+}
+
+.content__container {
+  display: grid;
+  width: 100%;
+  grid-template-rows: 30px 70% 40px;
+  grid-row-gap: 3px;
+  padding: 5px;
+}
+
+.profileInfo {
+  display: grid;
+  width: 100%;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileInfo .profilePic {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border: 2px solid #1995AD;
+  border-radius: 20%;
+}
+
+.card__content {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+}
+
+.postTitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.postThought {
+  text-align: justify;
+  margin-left: 2px;
+  width: 95%;
+  height: 100%;
+
+  overflow: hidden;
+  white-space: normal;
+  font-size: 12px;
+
+  resize: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.postActions {
+  align-items: center;
+  justify-content: space-between;
+}
