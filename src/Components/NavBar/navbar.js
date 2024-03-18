@@ -33,17 +33,17 @@ class NavBar extends Component{
                 <InputBase className='navbar__searchbar'
                     placeholder="Search..."
                     inputProps={{ 'aria-label': 'search' }}
-                    style={{ color: '#CEE5F2' }} />
+                    style={{ color: '#3B5998' }} />
             </div>
             <div>
                 <IconButton>
-                <SearchIcon style={{ color: '#CEE5F2' }} />
+                <SearchIcon style={{ color: '#3B5998' }} />
                 </IconButton>
             </div>
 
             {/* Notification Icon */}
             <div style={{ marginLeft: '10px' }}>
-                <IconButton style={{ color: '#CEE5F2' }}>
+                <IconButton style={{ color: '#3B5998' }}>
                     <NotificationsIcon />
                 </IconButton>
             </div>
@@ -56,7 +56,7 @@ class NavBar extends Component{
 
             {/* Settings Icon */}
             <div style={{ marginLeft: '10px' }}>
-                <IconButton style={{ color: '#CEE5F2' }}>
+                <IconButton style={{ color: '#3B5998' }}>
                     <SettingsIcon />
                 </IconButton>
             </div>

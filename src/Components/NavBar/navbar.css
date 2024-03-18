@@ -7,9 +7,6 @@
 .navbar{
     margin-top: 5px;
     width: 90%;
-    background: -webkit-linear-gradient(to left, #C06C84, #6C5B7B, #355C7D);  
-    background: linear-gradient(to left, #C06C84, #6C5B7B, #355C7D); 
-    border: 2px solid white;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2),
                 -10px -10px 10px rgba(0, 0, 0, 0.2);
@@ -18,25 +15,25 @@
     margin-left: 50px;
     margin-right: 50px;
     height: 40px;
-    border: 2px solid #CEE5F2;
+    border: 2px solid #3B5998;
     border-radius: 10px;
 }
 .navbar__label{
     font-variant: small-caps;
     flex-grow: 1;
-    color: #CEE5F2;
+    color: #3B5998;
 }
 .navbar__searchbar {
     display: flex;
     margin-right: 10px;
     width: 300px;
     height:30px;
-    border-bottom: 2px solid #CEE5F2;
+    border-bottom: 2px solid #3B5998;
 }
 .navbar__profileavatar {
     margin-right: 10px;
     margin-left: 10px;
-    border: 2px solid #CEE5F2;
+    border: 2px solid #3B5998;
     border-radius: 10px;
     width: 40px;
     height: 40px;
@@ -45,5 +42,5 @@
 
 .navbar__profilename{
     margin-left: 30px;
-    color: #CEE5F2;
+    color: #3B5998;
 }

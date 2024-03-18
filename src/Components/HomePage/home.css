@@ -3,8 +3,9 @@
   grid-template-rows: 7% 92%;
   grid-row-gap: 5px;
   width: 100%;
-  height: 1000px;
-  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  height: 1200px;
+  max-height: 1100px;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
 }
 .top-panel{
   justify-content: center;
@@ -12,8 +13,7 @@
   align-items: center;
   width: 100%;
 }
-.bottom-panel {
-  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+/* .bottom-panel {
   height: 120%;
   max-height: 120%;
-}
+} */

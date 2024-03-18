@@ -116,7 +116,7 @@ const Feed = () => {
   <div className='feed__screen'>
     <div className="cardContainer">
       {posts.map((post, index) => (
-        <div className="card" key={index}>
+        <div className="feed__card" key={index}>
           <div className='content__container'>
             <div className="profileInfo">
               <img src={post.profilePic} alt={post.username} className="profilePic" />

@@ -35,7 +35,7 @@ const Post = () => {
                 Have new thought!!! Post IT</button>
         ) : (
     <div className="card-overlay">
-        <Grid className="card" container spacing={1}>
+        <Grid className="post__card" container spacing={1}>
             <Grid item xs={12}>
                 <Typography className='card__label' variant="h6">
                 <span style={{ color: '#FF0000' }}>A</span>dd Ne

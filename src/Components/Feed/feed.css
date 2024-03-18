@@ -1,8 +1,7 @@
 .feed__screen {
-  width: 100%;
-  height: 100%;
-  overflow-x: scroll;
-  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
 }
 .feed__screen::-webkit-scrollbar { 
   scroll-behavior: auto;
@@ -11,27 +10,28 @@
 
  .cardContainer {
   display: grid;
+  max-width: 100%;
   grid-template-columns: repeat(3, 240px);
-  grid-auto-rows: 250px;
-  position: absolute;
+  grid-auto-rows: 255px;
   gap: 20px;
   white-space: nowrap;
   padding: 20px;
-  top: 0;
-  left: 0;
 }
 
-.card {
+.feed__card {
   max-height: 250px;
-  /* background: linear-gradient(145deg, #e6e6e6, #ffffff); */
+  border-radius: 20px;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
   box-shadow:  17px 17px 43px #808080,
                -17px -17px 43px #ffffff;
 }
 
 .content__container {
   display: grid;
+  margin: 5px;
+  align-items: center;
   width: 100%;
-  grid-template-rows: 30px 70% 40px;
+  grid-template-rows: 30px auto 40px;
   grid-row-gap: 3px;
   padding: 5px;
 }
@@ -56,6 +56,8 @@
 .card__content {
   display: grid;
   grid-auto-flow: row;
+  grid-row-gap: 5pxpx;
+  margin-top: 8px;
   align-items: center;
 }
 
@@ -65,19 +67,16 @@
 }
 
 .postThought {
+  width: 90%;
+  max-height: 150px;
+  height: 130px;
   text-align: justify;
-  margin-left: 2px;
-  width: 95%;
-  height: 100%;
-
-  overflow: hidden;
-  white-space: normal;
-  font-size: 12px;
-
-  resize: none;
+  align-items: center;
+  overflow: hidden; 
   border: none;
-  background-color: transparent;
   outline: none;
+  resize: inherit;
+  border-radius: 5px;
 }
 
 .postActions {
