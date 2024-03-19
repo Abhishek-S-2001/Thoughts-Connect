@@ -3,11 +3,15 @@ import './mainscreen.css'
 
 import Feed from '../Feed/Feed';
 import Post from '../Post/post';
-import Status from '../Status/status'
+import Status from '../Status/status';
 import SelectedItem from '../SelectedItem/selecteditem';
 
 const MainScreen = () => {
     const [selecteditem, setselecteditem] = useState('');
+
+    const handleStatusClick = (item) => {
+        setselecteditem(item);
+    };
 
     const handlePostClick = (item) => {
         setselecteditem(item);
@@ -24,7 +28,7 @@ const MainScreen = () => {
                 <Post />
             </div>
             <div className='screen__status'>
-                <Status/>
+                <Status handleStatusClick={handleStatusClick} />
             </div>
             <div className='screen__feed'>
                 <Feed handlePostClick={handlePostClick}/>

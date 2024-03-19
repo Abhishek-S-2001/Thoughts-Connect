@@ -17,15 +17,15 @@ const SelectedItem = ({selecteditem}) => {
     <div className='selected__item'>
         <div className="item__card">
           <div className='itemcontent__container'>
-            <div className="profileInfo">
-              <img src={post.profilePic} alt={post.username} className="profilePic" />
-              <span className="username">{post.username}</span>
+            <div className="item__profileInfo">
+              <img src={post.profilePic} alt={post.username} className="item__profilePic" />
+              <span className="item__username">{post.username}</span>
             </div>
             <div className='card__content'>
-              <text variant="h6" className="postTitle">
+              <text variant="h6" className="itemTitle">
                 {post.title}
               </text>
-              <p variant="body2" className="postThought">
+              <p variant="body2" className="item__Thought">
                 {post.thought}
               </p>
             </div>

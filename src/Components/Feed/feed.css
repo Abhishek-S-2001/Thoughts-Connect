@@ -52,6 +52,9 @@
   border: 2px solid #1995AD;
   border-radius: 20%;
 }
+.username{
+  cursor: pointer;
+}
 
 .card__content {
   display: grid;
@@ -62,6 +65,7 @@
 .postTitle {
   font-size: 14px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .postThought {
@@ -74,6 +78,7 @@
   overflow-y: auto;
   white-space: pre-wrap;
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  cursor: pointer;
 }
 
 .postActions {
