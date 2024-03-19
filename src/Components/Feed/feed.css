@@ -56,8 +56,6 @@
 .card__content {
   display: grid;
   grid-auto-flow: row;
-  grid-row-gap: 5pxpx;
-  margin-top: 8px;
   align-items: center;
 }
 
@@ -69,17 +67,16 @@
 .postThought {
   width: 90%;
   max-height: 150px;
-  height: 130px;
+  height: 120px;
+  font-size: 12px;
   text-align: justify;
-  align-items: center;
-  overflow: hidden; 
-  border: none;
-  outline: none;
-  resize: inherit;
-  border-radius: 5px;
+  overflow: hidden;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
 }
 
 .postActions {
-  align-items: center;
-  justify-content: space-between;
+  width: 90%;
+  height: 80%;
 }

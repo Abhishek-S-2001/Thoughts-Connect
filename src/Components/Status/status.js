@@ -1,4 +1,4 @@
-import React, { useRef }  from 'react';
+import React, {useRef} from 'react';
 import './status.css';
 
 import Profile_Pic from '../../Resources/profile_pic.jpg';
@@ -7,14 +7,16 @@ import Profile_Pic3 from '../../Resources/profile_pic2.jpg'
 import Profile_Pic4 from '../../Resources/profile_pic3.jpg'
 
 const Status = () => {
-  const containerRef = useRef(null);
+  const statusScreenRef = useRef(null);
 
-  const handleMouseWheel = (e) => {
-    const container = containerRef.current;
-  
-    if (container) {
-      container.scrollLeft += e.deltaY;
-      e.preventDefault();
+  const handleWheel = (event) => {
+    if (statusScreenRef.current) {
+      event.preventDefault();
+      const scrollAmount = event.deltaY > 0 ? 100 : -100;
+      statusScreenRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -34,8 +36,8 @@ const Status = () => {
   ];
 
   return (
-    <div className="status__screen" ref={containerRef} onWheel={handleMouseWheel}>
-      <div className='status__container'>
+    <div className="status__screen" onWheel={handleWheel} ref={statusScreenRef}>
+      <div className='status__container' >
         {statusData.map(({  Src, status, title, thought }, index) => (
           <div className={`status__card ${status}`}>
             <div className='status__content' >

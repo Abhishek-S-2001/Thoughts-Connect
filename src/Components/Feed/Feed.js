@@ -10,7 +10,8 @@ import profilePic2 from '../../Resources/profile_pic1.jpg'
 import profilePic3 from '../../Resources/profile_pic2.jpg'
 import profilePic4 from '../../Resources/profile_pic3.jpg'
 
-const Feed = () => {
+const Feed = ({ handlePostClick }) => {
+
     const posts = [
     {
       username: 'Abhishek Shekhawat',
@@ -110,25 +111,25 @@ const Feed = () => {
     },
     
         // Add more posts as needed
-      ];
+    ];
 
   return (
   <div className='feed__screen'>
     <div className="cardContainer">
       {posts.map((post, index) => (
-        <div className="feed__card" key={index}>
+        <div className="feed__card" key={index}  onClick={() => handlePostClick({ type: 'post', data: post })}>
           <div className='content__container'>
             <div className="profileInfo">
               <img src={post.profilePic} alt={post.username} className="profilePic" />
-              <text variant="subtitle1">{post.username}</text>
+              <span className="username">{post.username}</span>
             </div>
             <div className='card__content'>
               <text variant="h6" className="postTitle">
                 {post.title}
               </text>
-              <textarea variant="body2" className="postThought">
+              <p variant="body2" className="postThought">
                 {post.thought}
-              </textarea>
+              </p>
             </div>
             <div className="postActions">
               <IconButton color="primary">

@@ -1,17 +1,19 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './mainscreen.css'
 
 import Feed from '../Feed/Feed';
 import Post from '../Post/post';
 import Status from '../Status/status'
+import SelectedItem from '../SelectedItem/selecteditem';
 
-class MainScreen extends Component{
-    constructor(props){
-        super(props);
-        this.state = {}
-    }
-    render(){
-        return(
+const MainScreen = () => {
+    const [selecteditem, setselecteditem] = useState('');
+
+    const handlePostClick = (item) => {
+        setselecteditem(item);
+    };
+ 
+    return(
 
     <div className='screen__container'>
         <div>
@@ -25,15 +27,14 @@ class MainScreen extends Component{
                 <Status/>
             </div>
             <div className='screen__feed'>
-                <Feed />
+                <Feed handlePostClick={handlePostClick}/>
             </div>
         </div>
-        <div>
-            Shekhawat
+        <div className='selected__item'>
+            <SelectedItem selecteditem={selecteditem}/>
         </div>
     </div>
 
-        )
-    }
-}
+    );  
+};
 export default MainScreen;

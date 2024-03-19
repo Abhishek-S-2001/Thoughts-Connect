@@ -1,0 +1,64 @@
+.selected__item{
+    display: flex;
+}
+.item__card {
+    height: 500px;
+    width: auto;
+    max-height: 500px;
+    max-width: 330px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow:  17px 17px 43px #808080,
+                 -17px -17px 43px #ffffff;
+  }
+  
+  .itemcontent__container {
+    display: grid;
+    margin: 5px;
+    align-items: center;
+    width: 100%;
+    grid-template-rows: 30px auto 40px;
+    grid-row-gap: 3px;
+    padding: 5px;
+  }
+  
+  .profileInfo {
+    display: grid;
+    width: 100%;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profileInfo .profilePic {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border: 2px solid #1995AD;
+    border-radius: 20%;
+  }
+  
+  .card__content {
+    display: grid;
+    grid-auto-flow: row;
+    align-items: center;
+  }
+  
+  .postTitle {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .postThought {
+    width: 90%;
+    max-height: 150px;
+    height: 120px;
+    font-size: 12px;
+    text-align: justify;
+    overflow: hidden;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  }
+  
