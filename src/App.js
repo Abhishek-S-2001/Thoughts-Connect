@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/HomePage/home';
-// import LoginPage from './Components/LoginPage/loginpage';
+import Register from './Components/Register/register';
+import LogIn from './Components/LogIn/login';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/selected-item" element={<SelectedItem />} /> */}
+        <Route path='/register' element= {<Register />} />
+        <Route path='/login' element= {<LogIn />} />
       </Routes>
     </Router>
   );

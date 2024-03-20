@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './home.css';
 
 import NavBar from '../NavBar/navbar';
 import MainScreen from '../MainScreen/mainscreen';
 
-class Home extends Component{
-    constructor(props){
-        super(props);
-        this.state = {}
-    }
-    render(){
-        return(
+const Home = () => {
+    return(
 
     <div className="app-container">
         <div className="top-panel">
@@ -21,7 +16,6 @@ class Home extends Component{
         </div>
     </div>
 
-        );
-    }
+    );
 }
 export default Home;
