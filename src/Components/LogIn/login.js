@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import "./login.css";
 
+import CryptoJS from "crypto-js";
+import { useNavigate } from "react-router-dom";
 import { TextField, Button } from '@mui/material';
 
-import TC_logo from "../../Resources/TC_Logo.jpg"
-import API from "../../config"
+import TC_logo from "../../Resources/TC_Logo.jpg";
+import { API, crypto_key} from "../../config";
 
 
 const LogIn = () => {
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -18,16 +22,17 @@ const LogIn = () => {
       event.preventDefault();
 
       // Login logic
+      const encryptedpassword = CryptoJS.AES.encrypt(password, crypto_key).toString();
 
       // Prepare user data object
         const userData = {
         email,
-        password,
+        password: encryptedpassword,
         };
   
       try {
         // Send Login request to the API
-        const response = await fetch(API.API +'/auth/login', {
+        const response = await fetch(API +'/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -50,11 +55,12 @@ const LogIn = () => {
 
         // Extract JWT token from the response
         const { token } = await response.json();
+        
 
         // Store the token in localStorage
         localStorage.setItem('token', token);
-        console.log(token)
-        console.log('Login successful');
+        navigate('/');
+
       } catch (error) {
         console.error('Login failed:', error.message);
       }
@@ -67,6 +73,9 @@ const LogIn = () => {
     const handlePasswordChange = (value) => {
         setPassword(value);
         setPasswordError('');
+    };
+    const handleRegister = () => {
+        navigate('/register');
     };
 
     return(
@@ -90,6 +99,9 @@ const LogIn = () => {
               LogIn
             </Button>
           </form>
+          <Button color="primary" onClick={handleRegister}>
+            Already Registered!! Sign Up
+          </Button>
         </div>
     </div>
 </div>

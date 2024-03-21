@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './home.css';
+
+import { useNavigate } from 'react-router-dom';
 
 import NavBar from '../NavBar/navbar';
 import MainScreen from '../MainScreen/mainscreen';
 
 const Home = () => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        // Check if token exists in local storage
+        const token = localStorage.getItem('token');
+        // If token does not exist, redirect to login page
+        if (!token) {
+          navigate('/login');
+        }
+    }, [navigate]);
     return(
 
     <div className="app-container">

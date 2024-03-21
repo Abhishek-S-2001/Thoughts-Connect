@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import "./register.css";
 
+import CryptoJS from "crypto-js";
+import { useNavigate } from "react-router-dom";
 import { TextField, Button } from '@mui/material';
 
 import TC_logo from "../../Resources/TC_Logo.jpg"
-import API from "../../config"
+import { API, crypto_key } from "../../config"
 
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,6 +19,8 @@ const Register = () => {
 
     const [error, setError] = useState('');
     const [regerror, setRegError] = useState('');
+
+    const [successMessage, setSuccessMessage] = useState('');
   
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -25,17 +31,18 @@ const Register = () => {
       }
 
       // Registration logic
+      const encryptedpassword = CryptoJS.AES.encrypt(password, crypto_key).toString();
 
       // Prepare user data object
         const userData = {
         username,
         email,
-        password,
+        password: encryptedpassword,
         };
   
       try {
         // Send registration request to the API
-        const response = await fetch(API.API +'/auth/register', {
+        const response = await fetch(API +'/auth/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -44,18 +51,23 @@ const Register = () => {
         });
   
         if (!response.ok) {
-                // Handle API error
+            // Handle API error
             const errorMessage = await response.text();
             throw new Error(errorMessage);
         }
         
   
         // Registration successful
-        // You may handle success scenario here (e.g., redirect to login page)
-        console.log('Registration successful');
+        setSuccessMessage('Successfully Registered');
+        // You may handle success scenario here
+        // Redirect to login page after a delay
+        setTimeout(() => {
+          navigate('/login');
+        }, 1000);
+
       } catch (error) {
         console.error('Registration failed:', error.message);
-        // Handle registration failure (e.g., display error message)
+        // Handle registration failure
         setRegError(JSON.parse(error.message).error);
       }
     };  
@@ -63,7 +75,6 @@ const Register = () => {
     const handleemailChange = (value) => {
         setEmail(value);
         setRegError('');
-        
     };
 
     const handleConfirmPasswordChange = (value) => {
@@ -101,6 +112,11 @@ const Register = () => {
               Sign Up
             </Button>
           </form>
+          {successMessage && (
+            <div className="success" onAnimationEnd={() => setSuccessMessage('')}>
+              Successfully Registered
+            </div>
+          )}
         </div>
     </div>
 </div>

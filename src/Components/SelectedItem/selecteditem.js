@@ -9,10 +9,10 @@ const SelectedItem = ({selecteditem}) => {
 
     const post = selecteditem.data;
 
-    // Check for individual properties existence before rendering
-    if (!post.profilePic || !post.username || !post.title || !post.thought) {
-        return <div>Missing post data</div>;
-    }
+    // // Check for individual properties existence before rendering
+    // if (!post.profilePic || !post.username || !post.title || !post.thought) {
+    //     return <div>Missing post data</div>;
+    // }
     return(
     <div className='selected__item'>
         <div className="item__card">
@@ -26,7 +26,7 @@ const SelectedItem = ({selecteditem}) => {
                 {post.title}
               </text>
               <p variant="body2" className="item__Thought">
-                {post.thought}
+                {post.content}
               </p>
             </div>
           </div>

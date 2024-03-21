@@ -1,117 +1,38 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import './feed.css';
+
+import { API } from '../../config';
+
 import { IconButton } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import CommentIcon from '@mui/icons-material/Comment';
 import ShareIcon from '@mui/icons-material/Share';
-import './feed.css';
 
-import profilePic from '../../Resources/profile_pic.jpg'
-import profilePic2 from '../../Resources/profile_pic1.jpg'
-import profilePic3 from '../../Resources/profile_pic2.jpg'
-import profilePic4 from '../../Resources/profile_pic3.jpg'
+
 
 const Feed = ({ handlePostClick }) => {
 
-    const posts = [
-    {
-      username: 'Abhishek Shekhawat',
-      profilePic: profilePic,
-      title: 'Post Title 1',
-      thought: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      username: 'user2',
-      profilePic: profilePic2,
-      title: 'Post Title 2',
-      thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },        
-    {
-    username: 'user3',
-    profilePic: profilePic3,
-    title: 'Post Title 3',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-    username: 'user4',
-    profilePic: profilePic4,
-    title: 'Post Title 4',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-      username: 'Abhishek Shekhawat',
-      profilePic: profilePic,
-      title: 'Post Title 1',
-      thought: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      username: 'user2',
-      profilePic: profilePic2,
-      title: 'Post Title 2',
-      thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },        
-    {
-    username: 'user3',
-    profilePic: profilePic3,
-    title: 'Post Title 3',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-    username: 'user4',
-    profilePic: profilePic4,
-    title: 'Post Title 4',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-      username: 'Abhishek Shekhawat',
-      profilePic: profilePic,
-      title: 'Post Title 1',
-      thought: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      username: 'user2',
-      profilePic: profilePic2,
-      title: 'Post Title 2',
-      thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },        
-    {
-    username: 'user3',
-    profilePic: profilePic3,
-    title: 'Post Title 3',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-    username: 'user4',
-    profilePic: profilePic4,
-    title: 'Post Title 4',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-      username: 'Abhishek Shekhawat',
-      profilePic: profilePic,
-      title: 'Post Title 1',
-      thought: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      username: 'user2',
-      profilePic: profilePic2,
-      title: 'Post Title 2',
-      thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },        
-    {
-    username: 'user3',
-    profilePic: profilePic3,
-    title: 'Post Title 3',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-    username: 'user4',
-    profilePic: profilePic4,
-    title: 'Post Title 4',
-    thought: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    
-        // Add more posts as needed
-    ];
+    const token = localStorage.getItem('token');
+    console.log(token)
+
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+      // Fetch posts from the API
+      fetch(API+'/thoughts/all')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch posts');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setPosts(data.thoughts); 
+        })
+        .catch(error => {
+          console.error('Error fetching posts:', error);
+        });
+    }, []);
 
   return (
   <div className='feed__screen'>
@@ -128,7 +49,7 @@ const Feed = ({ handlePostClick }) => {
                 {post.title}
               </text>
               <p variant="body2" className="postThought">
-                {post.thought}
+                {post.content}
               </p>
             </div>
             <div className="postActions">
