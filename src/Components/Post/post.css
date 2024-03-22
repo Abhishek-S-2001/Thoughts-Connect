@@ -22,68 +22,53 @@
   background: rgba(47, 58, 70, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 10;   
+  z-index: 10;
 }
 /* Check z Index  */
-.post__card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-  height: 400px;
-  border-radius: 10px;
+.newpost__card {
+  height: 500px;
+  width: 350px;
+  max-height: 500px;
+  max-width: 350px;
+  border-radius: 20px;
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  box-shadow:  17px 17px 100px #808080,
-               -17px -17px 100px #ffffff;
+  box-shadow:  17px 17px 43px #808080,
+               -17px -17px 43px #ffffff;
 }
-.card__label{
-  display: inline;
+.newpostcontent__container {
+  display: grid;
+  margin: 3px;
+  width: 100%;
+  height: 500px;
+  max-width: 350px;
+  max-height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+.postcard__label{
   font-variant: small-caps;
-  flex-grow: 1;
   color: #3B5998;
   border-bottom: 2px solid #3B5998;
 }
-.card__title {
-  display: inline;
-  width: 80%;
-  height: 30px;
-  background-color: #CEE5F2;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #3B5998;
-  border-radius: 5px;
-}
-.card__thought {
-  width: 80%;
-  max-height: 100px;
-  height: auto;
-  margin-bottom: 20px;
-  text-align: justify;
-  color: #3B5998;
+.newpost__form{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  justify-items: center;
   align-items: center;
-  overflow: hidden; 
-  border: none;
-  outline: none;
-  resize: inherit;
-  border-bottom: 1px solid #3B5998;
-  border-radius: 5px;
-  background-color: #CEE5F2;
 }
 
-.post__button{
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 30px;
-  background-color: #3B5998;
-  color: #CEE5F2;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+.newpost__form .MuiFormControl-root {
+  margin-bottom: 12px;
+}
+.newpost__textfield{
+  width: 300px;
+  font-size: 12px;
+  box-shadow:  17px 17px 43px #dfdfdf,
+  -17px -17px 43px #ffffff;
+}
+.newpost__form .MuiButton-root {
+  margin-top: 10px;
 }
 
 button:hover {
