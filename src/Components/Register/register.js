@@ -17,8 +17,9 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const [error, setError] = useState('');
-    const [regerror, setRegError] = useState('');
+    const [usernameerror, setUsernameError] = useState('');
+    const [passworderror, setError] = useState('');
+    const [emailerror, setEmailError] = useState('');
 
     const [successMessage, setSuccessMessage] = useState('');
   
@@ -66,15 +67,25 @@ const Register = () => {
         }, 1000);
 
       } catch (error) {
-        console.error('Registration failed:', error.message);
+        const errorMessage = JSON.parse(error.message).error
+        console.error('Registration failed:', errorMessage);
         // Handle registration failure
-        setRegError(JSON.parse(error.message).error);
+        if (errorMessage === 'Email already registered!!') {
+          setEmailError(errorMessage);
+        } else if (errorMessage === 'Username already used!!') {
+          setUsernameError(errorMessage);
+        }
       }
     };  
 
+    const handleusernameChange = (value) => {
+        setUsername(value);
+        setUsernameError('');
+    };
+
     const handleemailChange = (value) => {
         setEmail(value);
-        setRegError('');
+        setEmailError('');
     };
 
     const handleConfirmPasswordChange = (value) => {
@@ -93,11 +104,12 @@ const Register = () => {
 
             <form className='register__form' onSubmit={handleSubmit}>
             <TextField className='register__textfield' label="Username" value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => handleusernameChange(e.target.value)}
+              error={!!usernameerror} helperText={usernameerror}
               required />
             <TextField className='register__textfield' label="Email" type="email" value={email}
               onChange={(e) => handleemailChange(e.target.value)}
-              error={!!regerror} helperText={regerror}
+              error={!!emailerror} helperText={emailerror}
               required />
             <TextField className='register__textfield' label="Password" type="password" 
               variant="outlined" value={password}
@@ -106,7 +118,7 @@ const Register = () => {
             <TextField className='register__textfield' label="Confirm Password" type="password"
               variant="outlined" value={confirmPassword}
               onChange={(e) => handleConfirmPasswordChange(e.target.value)}
-              error={!!error} helperText={error}
+              error={!!passworderror} helperText={passworderror}
               required />
             <Button type="submit" variant="contained" color="primary">
               Sign Up
