@@ -58,7 +58,7 @@ const LogIn = () => {
         
 
         // Store the token in localStorage
-        localStorage.setItem('token', token);
+        localStorage.setItem('ThoughtConnectUserVerificationToken', token);
         navigate('/');
 
       } catch (error) {
@@ -100,7 +100,7 @@ const LogIn = () => {
             </Button>
           </form>
           <Button color="primary" onClick={handleRegister}>
-            Already Registered!! Sign Up
+            Don't Have Account!! Create Now
           </Button>
         </div>
     </div>

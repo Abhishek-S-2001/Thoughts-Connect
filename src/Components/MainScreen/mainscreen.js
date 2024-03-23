@@ -8,6 +8,11 @@ import SelectedItem from '../SelectedItem/selecteditem';
 
 const MainScreen = () => {
     const [selecteditem, setselecteditem] = useState('');
+    const [refreshFeed, setRefreshFeed] = useState(false);
+
+    const handleRefreshFeed = () => {
+      setRefreshFeed(true); // Toggle the state to trigger a refresh
+    };
 
     const handleStatusClick = (item) => {
         setselecteditem(item);
@@ -25,13 +30,13 @@ const MainScreen = () => {
         </div>
         <div className='screen'>
             <div className='screen__post'>
-                <Post />
+                <Post onRefreshFeed={handleRefreshFeed}/>
             </div>
             <div className='screen__status'>
                 <Status handleStatusClick={handleStatusClick} />
             </div>
             <div className='screen__feed'>
-                <Feed handlePostClick={handlePostClick}/>
+                <Feed handlePostClick={handlePostClick} refreshFeed={refreshFeed}/>
             </div>
         </div>
         <div className='selected__item'>

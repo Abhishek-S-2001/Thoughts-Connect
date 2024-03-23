@@ -10,7 +10,7 @@ const Home = () => {
     const navigate = useNavigate();
     useEffect(() => {
         // Check if token exists in local storage
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('ThoughtConnectUserVerificationToken');
         // If token does not exist, redirect to login page
         if (!token) {
           navigate('/login');

@@ -2,20 +2,25 @@ import React, { useState } from 'react'
 import './post.css'
 import { Typography, TextField, Switch, Button, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { API } from '../../config';
 
-const Post = () => {
+
+const Post = ({onRefreshFeed}) => {
     const [showCard, setShowCard] = useState(false);
     
     const [title, setTitle] = useState('');
     const [thought, setThought] = useState('');
     const [selectedtag, setTag] = useState('');
-    const [Public, setPublic] = useState('');
+    const [Public, setPublic] = useState('public');
 
     const [successMessage, setSuccessMessage] = useState('');
 
     const tags = [ "#Technology", "#Cooking", "#Idea", "#Travel", "#Photography", "#Fashion",
         "#Fitness", "#Art", "#Music", "#Books", "#Foodie", "#DIY", "#Nature", "#Gaming",
         "#Health", "#Motivation", "#Inspiration", "#Quotes", "#Selfie", "#ThrowbackThursday" ];
+
+    // Check if User Verification token exists in local storage
+    const token = localStorage.getItem('ThoughtConnectUserVerificationToken');
       
 
     const handleThoughtChange = (event) => {
@@ -28,18 +33,55 @@ const Post = () => {
         element.style.height = element.scrollHeight + 'px';
       };
 
-    const handleSubmit = () => {
-        console.log('Title:', title);
-        console.log('Thought:', thought);
-        console.log('Tags:', selectedtag);
-        console.log('Public: ', Public);
-
-
-        // Post Uploaded successful
-        setSuccessMessage('Post Uploaded');
-        // Close the card after posting
-        setShowCard(false);
+      // Function to handle switch value change
+    const handleSwitchChange = (event) => {
+        if(event.target.checked === true){
+            setPublic('public');
+        }else{
+            setPublic('private');
+        }
     };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        try {
+            // Prepare the post data object
+            console.log(Public)
+            const postData = {
+                title: title,
+                content: thought,
+                hashtags: selectedtag,
+                visibility: Public
+            };
+    
+            // Send the POST request to the API
+            const response = await fetch(API+'/thoughts/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token,
+                    // Add any additional headers as needed
+                },
+                body: JSON.stringify(postData),
+            });
+    
+            // Check if the request was successful
+            if (!response.ok) {
+                // Handle error response from the API
+                const errorMessage = await response.text();
+                throw new Error(errorMessage);
+            }
+            // Post uploaded successfully
+            setSuccessMessage("Post uploaded successfully");
+            // Optionally, close the card after posting
+            onRefreshFeed();
+            setShowCard(false);
+        } catch (error) {
+            console.error('Error uploading post:', error.message);
+        }
+    };
+    
     return(
     <div className="post-container">
         {!showCard ? (
@@ -79,15 +121,15 @@ const Post = () => {
                         </Select>
                         </FormControl>
                         <span style={{ margin: '20px' }}>Public</span>
-                        <Switch defaultChecked value={Public} onChange={(e) => setPublic(e.target.value)}/>
+                        <Switch defaultChecked onChange={handleSwitchChange}/>
                     </div>
                     <Button type="submit" variant="contained" color="primary">
                     Post
                     </Button>
                 </form>
                 {successMessage && (
-                    <div className="success" onAnimationEnd={() => setSuccessMessage('')}>
-                    Successfully Registered
+                    <div className="post__success" onClick={() => setSuccessMessage('')}>
+                    Thought Posted Successfully!!
                     </div>
                 )}
             </div>

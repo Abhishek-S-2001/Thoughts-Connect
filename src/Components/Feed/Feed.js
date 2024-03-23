@@ -6,13 +6,11 @@ import { API } from '../../config';
 import { IconButton } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import CommentIcon from '@mui/icons-material/Comment';
-import ShareIcon from '@mui/icons-material/Share';
-
 
 
 const Feed = ({ handlePostClick }) => {
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('ThoughtConnectUserVerificationToken');
     console.log(token)
 
     const [posts, setPosts] = useState([]);
@@ -33,6 +31,7 @@ const Feed = ({ handlePostClick }) => {
           console.error('Error fetching posts:', error);
         });
     }, []);
+
 
   return (
   <div className='feed__screen'>
@@ -58,9 +57,6 @@ const Feed = ({ handlePostClick }) => {
               </IconButton>
               <IconButton color="primary">
                 <CommentIcon />
-              </IconButton>
-              <IconButton color="primary">
-                <ShareIcon />
               </IconButton>
             </div>
           </div>
