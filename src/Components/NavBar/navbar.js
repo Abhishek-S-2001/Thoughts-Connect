@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './navbar.css';
-import { Toolbar, Typography, InputBase, IconButton } from '@mui/material';
-import { Search as SearchIcon } from '@mui/icons-material';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import SettingsIcon from '@mui/icons-material/Settings';
+import { Toolbar, Typography } from '@mui/material';
 
 
 import logo from '../../Resources/TC_Logo.jpg'
@@ -28,37 +25,10 @@ class NavBar extends Component{
             </Typography>
 
 
-            {/* Search Bar */}
-            <div>
-                <InputBase className='navbar__searchbar'
-                    placeholder="Search..."
-                    inputProps={{ 'aria-label': 'search' }}
-                    style={{ color: '#3B5998' }} />
-            </div>
-            <div>
-                <IconButton>
-                <SearchIcon style={{ color: '#3B5998' }} />
-                </IconButton>
-            </div>
-
-            {/* Notification Icon */}
-            <div style={{ marginLeft: '10px' }}>
-                <IconButton style={{ color: '#3B5998' }}>
-                    <NotificationsIcon />
-                </IconButton>
-            </div>
-
             {/* User Profile */}
             <div style={{ display: 'flex', alignItems: 'center' }}>
             <img src={profile_pic} className='navbar__profileavatar' alt="User Profile Pic"/>
             <Typography className ='navbar__profilename' variant="body1">Abhishek Shekhawat</Typography>
-            </div>
-
-            {/* Settings Icon */}
-            <div style={{ marginLeft: '10px' }}>
-                <IconButton style={{ color: '#3B5998' }}>
-                    <SettingsIcon />
-                </IconButton>
             </div>
 
         </Toolbar>

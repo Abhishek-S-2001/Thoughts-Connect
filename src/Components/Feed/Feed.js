@@ -3,11 +3,6 @@ import './feed.css';
 
 import { API } from '../../config';
 
-import { IconButton } from '@mui/material';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import CommentIcon from '@mui/icons-material/Comment';
-
-
 const Feed = ({ handlePostClick }) => {
 
     const token = localStorage.getItem('ThoughtConnectUserVerificationToken');
@@ -50,14 +45,6 @@ const Feed = ({ handlePostClick }) => {
               <p variant="body2" className="postThought">
                 {post.content}
               </p>
-            </div>
-            <div className="postActions">
-              <IconButton color="primary">
-                <ThumbUpIcon />
-              </IconButton>
-              <IconButton color="primary">
-                <CommentIcon />
-              </IconButton>
             </div>
           </div>
         </div>

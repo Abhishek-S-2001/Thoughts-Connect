@@ -11,11 +11,11 @@
  .cardContainer {
   display: grid;
   max-width: 100%;
-  grid-template-columns: repeat(3, 240px);
+  grid-template-columns: repeat(4, 240px);
   grid-auto-rows: 255px;
-  gap: 20px;
+  gap: 10px;
   white-space: nowrap;
-  padding: 20px;
+  padding: 10px;
 }
 
 .feed__card {

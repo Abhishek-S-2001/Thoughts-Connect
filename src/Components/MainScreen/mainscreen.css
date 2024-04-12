@@ -1,14 +1,15 @@
 .screen__container{
     display: grid;
-    grid-template-columns: 15% 58% 25%;
+    grid-template-columns: 1fr 25%;
     grid-column-gap: 5px;
     height: 100%;
-    width: 100%;
+    width: 98%;
 }
 
 
 .screen{
     display: grid;
+    margin: 4px;
     grid-template-rows: 3% 13%;
     width: 100%;
     height: 100%;

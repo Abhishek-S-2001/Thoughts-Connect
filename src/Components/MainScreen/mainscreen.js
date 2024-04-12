@@ -25,9 +25,6 @@ const MainScreen = () => {
     return(
 
     <div className='screen__container'>
-        <div>
-            Abhishek
-        </div>
         <div className='screen'>
             <div className='screen__post'>
                 <Post onRefreshFeed={handleRefreshFeed}/>
