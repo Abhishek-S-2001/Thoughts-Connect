@@ -7,7 +7,7 @@
 
 # Resources, images, logos
 /src/Resources
-/src/config.js
+# /src/config.js
 # testing
 /coverage
 
