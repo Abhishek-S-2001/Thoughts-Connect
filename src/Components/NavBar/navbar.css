@@ -44,3 +44,14 @@
     margin-left: 30px;
     color: #3B5998;
 }
+
+.navbar_signout{
+    height: 30px;
+    width: 80px;
+    margin-left: 30px;
+    color: #060606;
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: #010f2e;
+    box-shadow: 5px 5px 5px rgba(2, 75, 211, 0.5);
+  }

@@ -20,7 +20,7 @@ const Home = () => {
 
     <div className="app-container">
         <div className="top-panel">
-            <NavBar />
+            <NavBar nav={navigate}/>
         </div>
         <div className="bottom-panel">
             <MainScreen />
