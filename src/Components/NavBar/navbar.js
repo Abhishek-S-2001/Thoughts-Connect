@@ -11,7 +11,17 @@ class NavBar extends Component{
         super(props);
         this.state = {}
     }
+    
     render(){
+        const { nav } = this.props; 
+  const handleSignOut = () => {
+    // Clear the token from localStorage
+    localStorage.removeItem('ThoughtConnectUserVerificationToken');
+
+    nav('/login')
+    console.log("User signed out, token removed from localStorage and state!");
+  };
+
         return(
     <div className='nav__container'>
         <Toolbar className='navbar'>
@@ -31,6 +41,9 @@ class NavBar extends Component{
             <Typography className ='navbar__profilename' variant="body1">Abhishek Shekhawat</Typography>
             </div>
 
+            {/* Add Logout */}
+            <button className='navbar_signout' onClick={handleSignOut}>
+               Sign Out</button>
         </Toolbar>
     </div>
         );
