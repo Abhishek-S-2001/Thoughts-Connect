@@ -2,6 +2,15 @@
 
 The Thoughts Social Platform is a web application built to provide users with a platform to share their thoughts, ideas, and engage with a community of like-minded individuals. The project focuses on creating a social space where users can post thoughts, follow each other, and discover content based on their preferences. The application utilizes a technology stack with Express.js for the backend, React for the frontend, and MongoDB as the database.
 
+# Thoughts API [ Backend ]
+```bash
+https://github.com/Abhishek-S-2001/Thoughts_API
+```
+# Thoughts-Connect [ FrontEnd ]
+```bash
+https://github.com/Abhishek-S-2001/Thoughts-Connect
+```
+
 ## Table of Contents
 
 - [Features](#features)
