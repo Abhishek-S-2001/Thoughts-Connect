@@ -1,70 +1,105 @@
-.register__page{
-    display: flex;
-    width: 100%;
-    height: 600px;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+.register__page {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
 }
-.register__card{
-    height: 500px;
-    width: 350px;
-    max-height: 500px;
-    max-width: 350px;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #e6e6e6, #ffffff);
-    box-shadow:  17px 17px 43px #808080,
-                 -17px -17px 43px #ffffff;
+
+.register__card {
+  width: 350px; /* Fixed width */
+  max-width: 350px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow: 17px 17px 43px rgba(128, 128, 128, 0.6),
+              -17px -17px 43px rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevents content from overflowing */
+  height: auto; /* Allow the card to grow based on content */
+  min-height: 500px; /* Ensures card has a minimum height */
 }
+
 .registercontent__container {
-    display: grid;
-    margin: 3px;
-    width: 100%;
-    height: 500px;
-    max-width: 350px;
-    max-height: 500px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%;
+  justify-content: space-between; /* Space between content and button */
+  overflow-y: auto; /* Allows scrolling if content exceeds height */
 }
-.register__logo{
-    height: 80px;
-    margin-top: 10px;
-    border-radius: 10px;
-    justify-self: center;
-    box-shadow:  17px 17px 43px #808080,
-                 -17px -17px 43px #ffffff;
+
+.register__logo {
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  justify-self: center;
+  box-shadow: 17px 17px 43px rgba(128, 128, 128, 0.6),
+              -17px -17px 43px rgba(255, 255, 255, 0.7);
+  align-self: center; /* Centers the logo */
 }
-.register__form{
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    justify-items: center;
-    align-items: center;
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  margin: 20px 0;
+  justify-items: center;
+  align-items: center;
+  flex-grow: 1; /* Allow form to take available space */
+  justify-content: space-between; /* Ensure form content and button are spaced correctly */
+  width: 100%;
+  overflow: hidden; /* Prevents form overflow */
 }
-  
-  .register__form .MuiFormControl-root {
-    margin-bottom: 12px;
-  }
-  .register__textfield{
-    width: 300px;
-    font-size: 12px;
-    box-shadow:  17px 17px 43px #dfdfdf,
-    -17px -17px 43px #ffffff;
-  }
-  .register__form .MuiButton-root {
-    margin-top: 10px;
-  }
-  .success {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(219, 219, 219,0.6);
-    padding: 10px;
-    border-radius: 5px;
-    transition: opacity 1s ease;
-  }
-  
-  .success.fade-out {
-    opacity: 0.8;
-  }
+
+.register__form .MuiFormControl-root {
+  margin-bottom: 12px;
+}
+
+.register__textfield {
+  margin-top: 10px;
+  width: 300px;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 17px 17px 43px rgba(223, 223, 223, 0.935),
+              -17px -17px 43px rgba(255, 255, 255, 0.7);
+}
+
+.register__form .MuiButton-root {
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Ensures button takes full width of the form */
+  box-sizing: border-box;
+  box-shadow: 17px 17px 43px rgba(223, 223, 223, 0.935),
+  -17px -17px 43px rgba(255, 255, 255, 0.7);
+}
+
+.register__form .MuiButton-root:hover {
+  background-color: #45a049;
+}
+
+.success {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(219, 219, 219, 0.6);
+  padding: 15px;
+  border-radius: 5px;
+  transition: opacity 1s ease;
+  text-align: center;
+  font-size: 16px;
+}
+
+.success.fade-out {
+  opacity: 0;
+}
